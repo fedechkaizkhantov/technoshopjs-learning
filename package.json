@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack serve",
     "build-dev": "webpack",
-    "build-prod": "set NODE_ENV=production&&webpack serve",
-    "clean": "rd /s /q dist"
+    "build-prod": "webpack --node-env=production",
+    "clean": "rd /s /q public"
   },
   "keywords": [],
   "author": "",
