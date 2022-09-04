@@ -7,7 +7,7 @@
 
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"> -->
 
     <title>Techno Shop - онлайн магазин гаджетов</title>
 </head>
@@ -64,7 +64,8 @@
                                         <img src="img/clock4.jpg" alt="">
                                     </li>
                                 </ul>
-                                <div class="card__slider-thumb">
+                               <div class='card__slider-thumb-wrapper'>
+                                <div class="swiper card__slider-thumb">
                                     <ul class="swiper-wrapper">
                                         <li class="swiper-slide">
                                             <button class="card__thumb-btn"><img src="img/clock1-m.jpg" alt=""></button> 
@@ -79,9 +80,11 @@
                                             <button class="card__thumb-btn"><img src="img/clock4-m.jpg" alt=""></button> 
                                         </li>
                                     </ul>
-                                    <div class="swiper-scrollbar"></div>
+                                    
                                     <!-- <div class="swiper-pagination"></div> -->
-                                    </div>
+                                </div>
+                                <div class="swiper-scrollbar card__slider-thumb-scrollbar"></div>
+                               </div>
                             </div>
                     </div>
                     <div class="card__info">
