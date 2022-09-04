@@ -1,0 +1,54 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 75px;
+    
+    &__arrow {
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-image: url('img/Vector.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        &_start {
+            transform: rotate(180deg);
+
+        }
+        &[href=''] {
+            opacity: 0.5;
+            pointer-events: none;
+
+        }
+
+    }
+
+    &__list {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        border: 2px solid transparent;
+        border-radius: 2px;
+        transition: border-color .2s ease;
+        &_active {
+            border-color: $color-main;
+            
+        }
+        
+    }
+
+}
