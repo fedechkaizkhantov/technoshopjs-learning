@@ -19,6 +19,24 @@
 
     }
 
+    &__label-select {
+        position: relative;
+
+        &:after {
+            content:'';
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(calc(-50% - 3px)) rotate(45deg);
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: transparent $color-primary $color-primary transparent;
+        }
+    }
+
     &__fields-list {
         margin-bottom: 40px;
     }
