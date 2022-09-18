@@ -1,4 +1,9 @@
 .catalog {
+
+
+    &__container {
+        position: relative;
+    }
     
     
     &__title {
@@ -9,7 +14,7 @@
 
     }
 
-    &__container {
+    &__wrapper {
         display: grid;
         grid-template-columns: 4fr 340px;
         gap: 72px 30px;
@@ -30,6 +35,44 @@
             row-gap: 40px;
         }
 
+    }
+
+    &__pagination {
+        grid-column: 2 span;
+
+        @include tablet {
+            grid-column: auto;
+        }
+    }
+
+    &__filter-btn {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 27px;
+            background-color: transparent;
+            border: 0;
+            
+
+            &::after {
+                content: '';
+                display: block;
+                width: 18px;
+                height: 18px;
+                background-image: url('img/arrow_down.svg');
+
+            }
+        }
+
+        
     }
 
     // &__goods {

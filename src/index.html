@@ -17,8 +17,8 @@
         <a class="header__logo-link" href="/">
             <img class='header__logo' src="img/logo.svg" alt="'logo">
         </a>
-        <form class="header__search search">
-            <input type="search" class="search__input">
+        <form action="/" class="header__search search">
+            <input type="search" class="search__input" name="search">
             <button class="search__button" aria-label="найти на сайте">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.01809 3.01801C1.07184 4.96427 0 7.55192 0 10.3043C0 13.0567 1.07184 15.6443 3.01809 17.5905C4.9643 19.5367 7.55194 20.6086 10.3043 20.6086C12.8206 20.6086 15.199 19.7122 17.0757 18.0712L22.7984 23.7938C23.0733 24.0687 23.5189 24.0687 23.7938 23.7938C23.9312 23.6564 24 23.4763 24 23.2962C24 23.1161 23.9313 22.9359 23.7938 22.7985L18.0712 17.0758C19.7121 15.199 20.6086 12.8207 20.6086 10.3043C20.6086 7.55187 19.5367 4.96432 17.5905 3.01806C15.6443 1.07185 13.0567 1.43051e-06 10.3043 1.43051e-06C7.55194 1.43051e-06 4.9643 1.0718 3.01809 3.01801ZM16.5951 4.01345C20.0639 7.48226 20.0639 13.1263 16.5951 16.5951C13.1264 20.0638 7.48228 20.0638 4.01353 16.5951C2.27897 14.8605 1.41197 12.5828 1.41197 10.3042C1.41197 8.0263 2.27939 5.7476 4.01353 4.01341C7.48223 0.544736 13.1263 0.544736 16.5951 4.01345Z"/>
@@ -32,7 +32,7 @@
                 </svg>
                 <span class="">8 914 923 92 - 23</span>                   
             </a>
-            <a href="cart.html" class="header__cart" aria-label="перейти в корзину">
+            <a href="cart.html" class="header__cart" aria-label="перейти в корзину" data-count="0">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M35.9872 35.1034L33.0263 10.0423C32.977 9.63885 32.5822 9.32503 32.1381 9.32503H26.6605V7.80075C26.6605 3.49689 22.8114 0 18.074 0C13.3367 0 9.48756 3.49689 9.48756 7.80075V9.32503H3.86194C3.41781 9.32503 3.02303 9.63885 2.97369 10.0423L0.0128368 35.1034C-0.0365107 35.3275 0.0621842 35.5517 0.210227 35.731C0.358269 35.9103 0.605007 36 0.851744 36H35.1483C35.395 36 35.6417 35.9103 35.7898 35.731C35.9378 35.5517 36.0365 35.3275 35.9872 35.1034ZM25.7722 13.8531C26.2164 13.8531 26.5618 14.1669 26.5618 14.5704C26.5618 14.9738 26.2164 15.2877 25.7722 15.2877C25.3281 15.2877 24.9827 14.9738 24.9827 14.5704C24.9827 14.1669 25.3281 13.8531 25.7722 13.8531ZM11.2641 7.80075C11.2641 4.39352 14.3236 1.61395 18.074 1.61395C21.8244 1.61395 24.884 4.39352 24.884 7.80075V9.32503H11.2641V7.80075ZM10.3758 13.8531C10.8199 13.8531 11.1654 14.1669 11.1654 14.5704C11.1654 14.9738 10.8199 15.2877 10.3758 15.2877C9.93168 15.2877 9.58625 14.9738 9.58625 14.5704C9.58625 14.1669 9.93168 13.8531 10.3758 13.8531ZM1.88804 34.3412L4.6515 10.8941H9.48756V12.3736C8.50061 12.6874 7.80974 13.5392 7.80974 14.5255C7.80974 15.7808 8.94473 16.812 10.3265 16.812C11.7082 16.812 12.8432 15.7808 12.8432 14.5255C12.8432 13.5392 12.1523 12.6874 11.1654 12.3736V10.8941H24.7853V12.3736C23.7983 12.6874 23.1075 13.5392 23.1075 14.5255C23.1075 15.7808 24.2425 16.812 25.6242 16.812C27.0059 16.812 28.1409 15.7808 28.1409 14.5255C28.1409 13.5392 27.45 12.6874 26.4631 12.3736V10.8941H31.4965L34.26 34.3412H1.88804Z"/>
                 </svg>                   
@@ -43,9 +43,9 @@
 
     <main class="main">
         <section class="catalog">
-            <div class="container">
+            <div class="container catalog__container">
                 <h2 class="catalog__title">Каталог</h2>           
-                <div class="catalog__container">
+                <div class="catalog__wrapper">
                 <div class="catalog__goods goods">
                     <ul class="goods__list">
                         <!-- <li class="goods__item">
@@ -195,6 +195,8 @@
                     </ul>
                 </div>
 
+                    <button class="catalog__filter-btn">Фильтры</button>
+
                     <aside class="catalog__filter filter">
                         <form class="filter__form">
                             <h3 class="filter__title">Фильтры</h3>
@@ -203,28 +205,48 @@
                                 <fieldset class="filter__field">
                                     <legend class="filter__field-title">Цена</legend>
                                     <div class="filter__flex">
-                                        <label><input class="filter__input" type="number" name="price-start" placeholder="от" ></label>
-                                        <label><input class="filter__input" type="number" name="price-end" placeholder="до" ></label>
+                                        <label><input 
+                                            class="filter__input" 
+                                            type="number" 
+                                            name="minprice"
+                                            step="any" 
+                                            placeholder="от" ></label>
+                                        <label><input 
+                                            class="filter__input" 
+                                            type="number" 
+                                            name="maxprice"
+                                            step="any" 
+                                            placeholder="до" ></label>
                                     </div>
                                 </fieldset>
     
                                 <fieldset class="filter__field">
                                     <legend class="filter__field-title">Категория</legend>
-                                    <label class="filter__label-select"><select class="filter__input filter__input_select" name="category">
-                                        <option value="all" selected>все категории</option>
-                                        <option value="phone">Смартфоны</option>
+                                    <label class="filter__label-select"><select class="filter__input filter__input_select" id="category" name="category">
+                                        <option value="" selected>все категории</option>
+                                        <!-- <option value="phone">Смартфоны</option>
                                         <option value="tab">Планшеты</option>
                                         <option value="smartwatch">Умные часы</option>
                                         <option value="mono">Моноблоки</option>
-                                        <option value="laptop">Ноутбуки</option>                                   
+                                        <option value="laptop">Ноутбуки</option>                                    -->
                                     </select></label>
                                 </fieldset>
     
                                 <fieldset class="filter__field">
                                     <legend class="filter__field-title">Диагональ</legend>
                                     <div class="filter__flex">
-                                        <label><input type="number" name="diagonal-start" placeholder="от" class="filter__input"></label>
-                                        <label><input type="number" name="diagonal-end" placeholder="до" class="filter__input"></label>
+                                        <label><input 
+                                            type="number" 
+                                            name="mindisplay"
+                                            step="any" 
+                                            placeholder="от" 
+                                            class="filter__input"></label>
+                                        <label><input 
+                                            type="number" 
+                                            name="maxdisplay"
+                                            step="any" 
+                                            placeholder="до" 
+                                            class="filter__input"></label>
                                     </div>
                                 </fieldset>
     
