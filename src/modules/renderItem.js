@@ -18,10 +18,6 @@ const createCardImageSlider = (largeImages) => {
     return cardImageSlider;
 }
 
-// <ul class="swiper-wrapper">
-//<li class="swiper-slide">
-//<button class="card__thumb-btn"><img src="img/clock1-m.jpg" alt=""></button> 
-//</li>
 
 const createCardImageThumbSlider = (smallImages) => {
     const cardImageSlider = document.createElement('ul');
@@ -71,7 +67,6 @@ const createDescription = (description) => {
 }
 
 export const renderItem = item => {
-    console.log(item);
 
     const cardImage = document.querySelector('.card__image');
 
@@ -106,12 +101,26 @@ export const renderItem = item => {
     cardDescriptionText.append(...createDescription(item.description));
 
     const thumbSwiper = new Swiper(cardSliderThumb,{
-        spaceBetween: 44,
+        spaceBetween: 15,
         slidesPerView: 3,
         scrollbar: {
             el: swiperScrollbar,
             draggable: true,
-           
+        },
+        breakpoints: {
+            768: {
+                spaceBetween: 20,
+
+            },
+            1024: {
+                spaceBetween: 27,
+
+            },
+            1600: {
+                spaceBetween: 44,
+
+            },
+
         },
         modules: [Scrollbar],
         

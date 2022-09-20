@@ -1,7 +1,15 @@
-export const serviceCounter = ({ selectorWrapper, selectorNumber, selectorDec, selectorInc }) => {
-    const wrapCounter = document.querySelector(selectorWrapper);
-    const numberElem = document.querySelector(selectorNumber);
+export const serviceCounter = ({ wrapper, number, selectorDec, selectorInc }) => {
 
+    let wrapCounter;
+    let numberElem;
+    if (typeof wrapper === 'string') {
+        wrapCounter = document.querySelector(wrapper);
+        numberElem = wrapCounter.querySelector(number);
+    } else {
+        wrapCounter = wrapper;
+        numberElem = number;
+    }
+    
     wrapCounter.addEventListener('click', (e) => {
         const target = e.target;
 
