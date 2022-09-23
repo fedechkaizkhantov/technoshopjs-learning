@@ -61,7 +61,7 @@
             background-color: transparent;
             border: 0;
             
-
+//стрелка на кнопке фильтра, тоже удваивается
             &::after {
                 content: '';
                 display: block;

@@ -10,7 +10,7 @@ overlay.style.cssText = `
 
 export const showOverlay = () => {
     document.body.append(overlay);
-}
+};
 
 export const hideOverlay = () => {
     overlay.remove();

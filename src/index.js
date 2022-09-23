@@ -9,7 +9,7 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
 import { startPagination } from './modules/pagination';
-import { getGoods, getGoodsItem } from './modules/goodsService';
+import { getGoods, getGoodsItem, getGoodsList, getGoodsCategoryItem, getCategory } from './modules/goodsService';
 import { renderGoods } from './modules/renderGoods';
 import { renderItem } from './modules/renderItem';
 import { filter } from './modules/filter';
@@ -17,18 +17,37 @@ import { cartControl } from './modules/cartControl';
 import { serviceCounter } from './modules/counterControl';
 import { searchWithoutReload } from './modules/search';
 import { renderCart } from './modules/cartControl';
-import { getGoodsList } from './modules/goodsService';
+import { renderRecommended } from './modules/renderRecommended';
+import { footerCatalog } from './modules/footer';
+
+
+try {
+
+    const footerCategoryList = document.querySelector ('.footer__list');
+    if (footerCategoryList) {
+
+        footerCatalog();
+
+    }
+
+} catch (e) {
+    console.warn(e);
+}
 
 
 try {
     const goodsList = document.querySelector('.goods__list');
+
     if (goodsList) {
     
     const paginationWrapper = document.querySelector('.pagination');
 
     searchWithoutReload(goodsList, paginationWrapper);
 
-    filter(goodsList, paginationWrapper);   
+
+
+    filter(goodsList, paginationWrapper); 
+   
     
     // const page = +pageUrl.searchParams.get('page') || 1;
 
@@ -51,7 +70,14 @@ try {
             classDelete: 'goods-item__to-cart_remove',
             })
         })
+
+    
+    
     }
+
+
+    
+
 } catch (e) {
     console.warn(e);
 }
@@ -60,6 +86,7 @@ try {
     const card = document.querySelector('.card');
 
     if (card) {
+        const recommended = document.querySelector('.recommended'); 
         const pageUrl = new URL(location);
         const id = +pageUrl.searchParams.get('id');
 
@@ -88,17 +115,17 @@ try {
             return item.category;
 
         }).then(category => {
-            return getGoods( {category} )
+            return getGoodsCategoryItem( category );
 
         }).then(data => {
-            // console.log(data)
+            renderRecommended(recommended, data, id);
         })
 
     }
 
 } catch (e) {
     console.warn(e);
-    console.log ('это не страница карт товаров');
+    // console.log ('это не страница карт товаров');
 }
 
 try {

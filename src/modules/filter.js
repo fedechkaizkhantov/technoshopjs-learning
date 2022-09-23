@@ -1,6 +1,5 @@
-import { Controller } from "swiper";
-import { getCategory } from "./goodsService";
-import { getGoods } from "./goodsService";
+
+import { getCategory, getGoods } from "./goodsService";
 import { renderGoods } from "./renderGoods";
 import { startPagination } from "./pagination";
 import { showOverlay, hideOverlay } from "./overlay";
@@ -8,11 +7,11 @@ import { showOverlay, hideOverlay } from "./overlay";
 
 const toggleFilter = (filter, catalogFilterBtn, filterTitle) => {
     catalogFilterBtn.addEventListener('click', () => {
-        filter.classList.add('filter__show');
+        filter.classList.add('filter_show');
         showOverlay();
     });
     filterTitle.addEventListener('click', () => {
-        filter.classList.remove('filter__show');
+        filter.classList.remove('filter_show');
         hideOverlay();
     });
 
@@ -96,9 +95,9 @@ export const filter = (goodsList, paginationWrapper) => {
         history.pushState(null, null, url);
 
         getGoods().then(({goods, pages, page}) => {
-            filter.classList.remove('filter__show');
+            filter.classList.remove('filter_show');
             hideOverlay();
-            renderGoods(goodsList, goods);
+            renderGoods(goodsList, goods, 'goods__item');
             startPagination (paginationWrapper, pages, page);
         })
         

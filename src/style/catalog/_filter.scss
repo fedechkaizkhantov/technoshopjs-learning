@@ -12,7 +12,7 @@
         z-index: 555;
         padding: 14px 20px 26px;
 
-        &__show {
+        &_show {
             display: block;
         }
     }
@@ -34,8 +34,8 @@
             font-size: 22px;
             line-height: 27px;
             justify-content: flex-end;         
-
-            &::after {
+//это код чтоб перевернуть стрелку у таблета на фильтре в открывашку, стрелка удваивается
+            &:after {
                 content: '';
                 display: block;
                 width: 18px;
@@ -107,6 +107,7 @@
         }
 
         &_select {
+            -webkit-appearance: none;
             width: 100%;
             color: $color-grey;
         
